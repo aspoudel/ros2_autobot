@@ -161,4 +161,42 @@ def generate_launch_description():
             ]
         ),
 
+        ComposableNodeContainer(
+            name='phidgets_container',
+            namespace='',
+            package='rclcpp_components',
+            executable='component_container',
+            composable_node_descriptions=[],
+            output='screen',
+        ),
+
+        LoadComposableNodes(
+            target_container='phidgets_container',
+            composable_node_descriptions=[
+                ComposableNode(
+                    package='phidgets_spatial',
+                    plugin='phidgets::SpatialRosI',
+                    name='phidgets_spatial',
+                    parameters=['/root/ros2_autobot2/config/phidget_imu.yaml'],
+                ),
+            ],
+        ),
+
+        Node(
+            package='tf2_ros',
+            executable='static_transform_publisher',
+            name='base_link_to_imu',
+            output='screen',
+            arguments=['0', '0', '0.1', '0', '0', '0', 'base_link', 'imu_link']
+        ),
+
+        Node(
+            package='robot_localization',
+            executable='ekf_node',
+            name='ekf_filter_node',
+            output='screen',
+            parameters=['/root/ros2_autobot/config/ekf.yaml'],
+            remappings=[('odometry/filtered', '/odom_fused')]
+        ),
+
     ])
