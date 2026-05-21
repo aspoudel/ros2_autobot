@@ -48,6 +48,7 @@ def generate_launch_description():
         #         '/opt/ros/jazzy/share/sick_scan_xd/launch/sick_tim_7xx.launch',
         #         'hostname:=192.168.0.1',
         #         'use_binary_protocol:=false',
+        #         'frame_id:=laser',
         #     ]
         # ),
 

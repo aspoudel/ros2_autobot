@@ -23,15 +23,21 @@ RUN apt-get update && apt-get install -y \
     ros-jazzy-nav-msgs \
     ros-jazzy-nav2-map-server \
     ros-jazzy-slam-toolbox \
+    ros-jazzy-nav2-bringup \
+    ros-jazzy-usb-cam \
+    ros-jazzy-nmea-navsat-driver \
+    ros-jazzy-robot-localization \
+    ros-jazzy-navigation2 \
     ros-jazzy-tf2-tools \
     ros-jazzy-tf2-ros \
     ros-jazzy-tf2 \
+    ros-jazzy-gps-msgs \
+    ros-jazzy-gps-tools \
     ros-jazzy-phidgets-spatial \
     ros-jazzy-sick-scan-xd \
     ros-jazzy-foxglove-bridge \
     ros-jazzy-pcl-conversions \
     ros-jazzy-pcl-ros \
-    ros-jazzy-nav2-map-server \
     ros2-testing-apt-source \
     && apt-get update && apt-get install -y \
     ros-jazzy-depthai-ros-v3 \
