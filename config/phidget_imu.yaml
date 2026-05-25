@@ -1,0 +1,16 @@
+phidgets_spatial:
+  ros__parameters:
+    serial: -1
+    hub_port: 0
+    frame_id: imu_link
+    linear_acceleration_stdev: 0.01
+    angular_velocity_stdev: 0.005
+    magnetic_field_stdev: 0.001
+    data_interval_ms: 50
+    callback_delta_epsilon_ms: 1
+    gain: 0.005
+    ahrs_angular_velocity_threshold: 1.0
+    ahrs_angular_velocity_delta_threshold: 0.1
+    ahrs_acceleration_threshold: 0.1
+    ahrs_delta_time_ms_threshold: 2500
+    ahrs_ahrs_only: false

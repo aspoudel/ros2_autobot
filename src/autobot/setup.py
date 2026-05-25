@@ -26,6 +26,7 @@ setup(
         'console_scripts': [
             'autobot_roll = autobot.autobot_roll:main',
             'odom_publisher = autobot.odom_publisher:main',
+            'dual_shock_mode_teleop = autobot.dual_shock_mode_teleop:main',
         ],
     },
 )

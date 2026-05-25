@@ -1,6 +1,8 @@
 from launch import LaunchDescription
 from launch.actions import TimerAction
-from launch_ros.actions import Node
+from launch_ros.actions import Node, ComposableNodeContainer, LoadComposableNodes
+from launch_ros.descriptions import ComposableNode
+from launch_ros.parameter_descriptions import ParameterFile
 
 
 def generate_launch_description():
@@ -162,6 +164,18 @@ def generate_launch_description():
             ]
         ),
 
+        # TimerAction(
+        #     period=5.0,
+        #     actions=[
+        #         Node(
+        #             package='project1',
+        #             executable='dual_shock_mode_teleop.py',
+        #             name='dualshock_mode_teleop',
+        #             output='screen',
+        #         ),
+        #     ],
+        # ),
+
         ComposableNodeContainer(
             name='phidgets_container',
             namespace='',
@@ -178,7 +192,10 @@ def generate_launch_description():
                     package='phidgets_spatial',
                     plugin='phidgets::SpatialRosI',
                     name='phidgets_spatial',
-                    parameters=['/root/ros2_autobot2/config/phidget_imu.yaml'],
+                    parameters=[ParameterFile(
+                        '/root/ros2_autobot/config/phidget_imu.yaml',
+                        allow_substs=True,
+                    )],
                 ),
             ],
         ),
